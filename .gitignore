@@ -1,0 +1,80 @@
+# Docker data and workingcopy specific .env
+/.env
+/.docker/data
+/.docker/cache
+/.bash_history
+/.bashrc
+/.viminfo
+/.web-server-pid
+
+# Email spool folder
+/app/spool/*
+
+# Cache, session files and logs (Symfony3)
+/var/cache/*
+/var/logs/*
+/var/sessions/*
+!var/cache/.gitkeep
+!var/logs/.gitkeep
+!var/sessions/.gitkeep
+
+# Parameters
+/app/config/parameters.yml
+/app/config/parameters.ini
+
+# Managed by Composer
+/app/bootstrap.php.cache
+/var/bootstrap.php.cache
+/bin/*
+!bin/console
+!bin/symfony_requirements
+/vendor/
+
+# Assets and user uploads
+/public/bundles/
+/public/uploads/
+
+# Assets managed by Bower
+/public/assets/vendor/
+
+# PHPUnit
+/app/phpunit.xml
+/phpunit.xml
+
+# Build data
+/build/
+
+# Composer PHAR
+/composer.phar
+
+# Backup entities generated with doctrine:generate:entities command
+*/Entity/*~
+
+# PHP Storm
+.idea
+
+# Netbeans
+.nbproject
+
+# VS Code
+.vscode
+
+# sublime text
+*.sublime-project
+*.sublime-workspace
+
+# Sonata
+public/media/
+
+# Mac OSX
+.DS_Store
+
+# nikita
+node_modules
+public/static/generated
+web/static/*.html
+reports
+tmp
+*.log
+
+.phpunit.result.cache

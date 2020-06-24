@@ -1,0 +1,36 @@
+version: "3.2"
+
+services:
+  php-cli:
+    image: exozet/php-fpm:7.3-sudo
+    user: www-data
+    entrypoint: bash
+    volumes:
+      - ./:/usr/src/app:cached
+      - ./.docker/cache/composer:/composer/cache/
+    env_file:
+      - ./.docker/common.env
+      - ./.env
+    depends_on:
+      - nginx
+
+  php-fpm:
+    image: exozet/php-fpm:7.3-sudo
+    env_file:
+      - ./.docker/common.env
+      - ./.env
+    volumes:
+      - ./:/usr/src/app:cached
+    ports:
+      - "9000"
+      # to make it locally available to the host, use: "9000:9000"
+
+  nginx:
+    image: nginx:1.13.5-alpine
+    depends_on:
+      - php-fpm
+    ports:
+      - "80:80"
+    volumes:
+      - ./:/usr/src/app:cached
+      - ./.docker/nginx/app.conf:/etc/nginx/conf.d/default.conf
