@@ -1,5 +1,7 @@
 {
     "name": "moritz.wachter/php-training",
+    "description": "small coding challenge about FizzBuzz and design patterns",
+    "homepage": "https://moritzwachter.de",
     "type": "project",
     "require-dev": {
         "phpunit/phpunit": "9.*"
