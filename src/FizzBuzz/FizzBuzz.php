@@ -18,4 +18,9 @@ class FizzBuzz
     {
         return $input % 3 === 0;
     }
+
+    public function isBuzz(int $input): bool
+    {
+        return $input % 5 === 0;
+    }
 }
