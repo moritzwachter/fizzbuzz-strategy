@@ -79,4 +79,29 @@ class FizzBuzzTest extends TestCase
             [30, true],
         ];
     }
+    /**
+     * @dataProvider isFizzBuzzDataProvider
+     *
+     * @param $input
+     * @param $expectedIsFizzBuzz
+     */
+    public function testIsFizzBuzz(int $input, bool $expectedIsFizzBuzz): void
+    {
+        $actual = $this->fizzBuzz->isFizzBuzz($input);
+        $this->assertSame($expectedIsFizzBuzz, $actual);
+    }
+
+    public function isFizzBuzzDataProvider(): array
+    {
+        return [
+            [0, true],
+            [1, false],
+            [3, false],
+            [11, false],
+            [15, true],
+            [30, true],
+            [45, true],
+            [450, true],
+        ];
+    }
 }
