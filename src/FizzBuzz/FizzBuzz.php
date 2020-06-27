@@ -6,7 +6,21 @@ class FizzBuzz
 {
     public function play(int $limit): array
     {
-        return [];
+        $result = [];
+
+        for ($i = 1; $i <= $limit; $i++) {
+            if ($this->isFizzBuzz($i)) {
+                $result[] = 'FizzBuzz';
+            } else if ($this->isFizz($i)) {
+                $result[] = 'Fizz';
+            } else if ($this->isBuzz($i)) {
+                $result[] = 'Buzz';
+            } else {
+                $result[] = (string) $i;
+            }
+        }
+
+        return $result;
     }
 
     public function render(array $results): void
