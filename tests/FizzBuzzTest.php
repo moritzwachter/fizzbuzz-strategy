@@ -104,4 +104,31 @@ class FizzBuzzTest extends TestCase
             [450, true],
         ];
     }
+
+    /**
+     * @dataProvider playDataProvider
+     *
+     * @param int $limit
+     * @param array $expectedResult
+     */
+    public function testPlay(int $limit, array $expectedResult)
+    {
+        $actualResult = $this->fizzBuzz->play($limit);
+
+        $this->assertSame($expectedResult, $actualResult);
+    }
+
+    public function playDataProvider(): array
+    {
+        return [
+            'should return empty array' => [0, []],
+            'should return first fizz' => [3, ['1', '2', 'Fizz']],
+            'should return first buzz' => [5, ['1', '2', 'Fizz', '4', 'Buzz']],
+            'should return first fizzbuzz' => [
+                15,
+                ['1', '2', 'Fizz', '4', 'Buzz', 'Fizz', '7', '8', 'Fizz', 'Buzz', '11', 'Fizz', '13', '14', 'FizzBuzz']
+            ],
+
+        ];
+    }
 }
