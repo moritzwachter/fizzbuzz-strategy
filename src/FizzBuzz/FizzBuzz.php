@@ -25,7 +25,9 @@ class FizzBuzz
 
     public function render(array $results): void
     {
-        echo "";
+        foreach ($results as $result) {
+            echo $result . PHP_EOL;
+        }
     }
 
     public function isFizz(int $input): bool
